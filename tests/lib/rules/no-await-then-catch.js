@@ -15,22 +15,22 @@ ruleTester.run("no-await-then-catch", rule, {
   valid: [
     {
       code: `async () => {
-        await snethings(event.digit);
+        await something(event.digit);
       }`
     },
-    'const test3 = async () => await snethings(event.digit);'
+    'const test3 = async () => await something(event.digit);'
   ],
 
   invalid: [
     {
       code: `const test = async () => {
-        await snethings(event.digit).then((error) => {
+        await something(event.digit).then((error) => {
           console.log('blaap');
           
         });
       }
       `,
-      errors: [{ message: "the combination with await and then is not allowed", type: "AwaitExpression" }],
+      errors: [{ messageId: "noAwait", type: "AwaitExpression" }],
     },
   ],
 });

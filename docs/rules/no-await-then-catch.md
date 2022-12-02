@@ -1,16 +1,21 @@
 # testing if then is not mixed with await (no-await-then-catch)
 
-Please describe the origin of the rule here.
+A rule to make sure no redundant awaits and then is used
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to warn you about redundant await and then's
 
 Examples of **incorrect** code for this rule:
 
 ```js
 
-// fill me in
+const test = async () => {
+    await something(event.digit).then((error) => {
+        console.log('blaap');
+        
+    });
+}
 
 ```
 
@@ -18,18 +23,6 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+const test = async () => await something(event.digit);
 
 ```
-
-### Options
-
-If there are any options, describe them here. Otherwise, delete this section.
-
-## When Not To Use It
-
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
