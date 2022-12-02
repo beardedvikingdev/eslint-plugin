@@ -1,4 +1,4 @@
-# eslint-plugin-eslint-beardedviking
+# @beardedviking/eslint-plugin
 
 A plugin for custom rules 
 
