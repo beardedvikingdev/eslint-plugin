@@ -1,6 +1,6 @@
 {
   "name": "@beardedviking/eslint-plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A plugin for custom rules ",
   "keywords": [
     "eslint",
