@@ -4,23 +4,38 @@ on:
     branches: ["main"]
 
 jobs:
-  changelog:
+  release:
     runs-on: ubuntu-latest
-
+    if:
+      ${{ github.repository == 'beardedvikingdev/eslint-plugin' &&
+      contains('refs/heads/main', github.ref) && github.event_name == 'push' }}
     steps:
-      - uses: actions/checkout@v3
-      - name: conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.6.0
         with:
-          github-token: ${{ secrets.github_token }}
+          access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: create release
-        uses: actions/create-release@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
         with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: ${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
+          node-version: 16
+
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+
+      - name: 🚀 Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          semantic_version: 17
+          branches: |
+            [
+              'main'
+            ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
