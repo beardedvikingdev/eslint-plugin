@@ -7,9 +7,7 @@
 const rule = require("../../../lib/rules/no-await-then-catch"),
   RuleTester = require("eslint").RuleTester;
 
-const ruleTester = new RuleTester({
-  parser: require.resolve('@typescript-eslint/parser'),
-});
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2017 } });
 
 ruleTester.run("no-await-then-catch", rule, {
   valid: [
