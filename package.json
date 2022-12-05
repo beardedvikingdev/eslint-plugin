@@ -12,7 +12,8 @@
   "exports": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha tests --recursive"
+    "test": "mocha tests --recursive",
+    "prepare": "husky install"
   },
   "dependencies": {
     "requireindex": "^1.2.0"
@@ -21,7 +22,10 @@
     "eslint": "^8.19.0",
     "eslint-plugin-eslint-plugin": "^5.0.0",
     "eslint-plugin-node": "^11.1.0",
-    "mocha": "^10.0.0"
+    "husky": "^8.0.2",
+    "mocha": "^10.0.0",
+    "prettier": "^2.8.0",
+    "pretty-quick": "^3.1.3"
   },
   "engines": {
     "node": "^14.17.0 || ^16.0.0 || >= 18.0.0"
@@ -29,5 +33,13 @@
   "peerDependencies": {
     "eslint": ">=8"
   },
-  "license": "ISC"
+  "license": "MIT",
+  "homepage": "https://github.com/beardedvikingdev/eslint-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/beardedvikingdev/eslint-plugin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beardedvikingdev/eslint-plugin"
+  }
 }
