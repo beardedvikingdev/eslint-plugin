@@ -1,17 +1,16 @@
 name: Release
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if:
-      ${{ github.repository == 'beardedvikingdev/eslint-plugin' &&
+    if: ${{ github.repository == 'beardedvikingdev/eslint-plugin' &&
       contains('refs/heads/main', github.ref) && github.event_name == 'push' }}
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.6.0
+        uses: styfle/cancel-workflow-action@0.10.0
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
 
