@@ -1,6 +1,6 @@
 # @beardedviking/eslint-plugin
 
-A plugin for custom rules 
+A plugin containing custom rules of all sorts
 
 ## Installation
 
@@ -17,24 +17,20 @@ Add `@beardedviking` to the plugins section of your `.eslintrc` configuration fi
 
 ```json
 {
-    "plugins": [
-        "@beardedviking"
-    ]
+  "plugins": ["@beardedviking"]
 }
 ```
-
 
 Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "@beardedviking/rule-name": 2
-    }
+  "rules": {
+    "@beardedviking/<config-name>": "error"
+  }
 }
 ```
 
 ## Supported Rules
+
 - no-await-then-catch
-
-
