@@ -33,4 +33,5 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- no-await-then-catch
+- [no-await-then-catch](docs/rules/no-await-then-catch.md)
+- [no-relative-import](docs/rules/no-relative-import.md)
