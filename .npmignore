@@ -2,4 +2,6 @@ node_modules
 .editorconfig
 .gitignore
 .github
+.vscode
+.husky
 CONTRIBUTING.md
