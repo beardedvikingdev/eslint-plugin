@@ -1,6 +1,6 @@
 # @beardedviking/eslint-plugin
 
-A plugin containing custom rules of all sorts
+A plugin containing custom rules that I use in my projects
 
 ## Installation
 
