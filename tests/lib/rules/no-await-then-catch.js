@@ -2,21 +2,21 @@
  * @fileoverview testing if then is not mixed with await
  * @author Bearded Viking
  */
-"use strict";
+'use strict';
 
-const rule = require("../../../lib/rules/no-await-then-catch"),
-  RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/no-await-then-catch'),
+  RuleTester = require('eslint').RuleTester;
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2017 } });
 
-ruleTester.run("no-await-then-catch", rule, {
+ruleTester.run('no-await-then-catch', rule, {
   valid: [
     {
       code: `async () => {
         await something(event.digit);
-      }`
+      }`,
     },
-    'const test3 = async () => await something(event.digit);'
+    'const test3 = async () => await something(event.digit);',
   ],
 
   invalid: [
@@ -28,7 +28,7 @@ ruleTester.run("no-await-then-catch", rule, {
         });
       }
       `,
-      errors: [{ messageId: "noAwait", type: "AwaitExpression" }],
+      errors: [{ messageId: 'noAwait', type: 'AwaitExpression' }],
     },
   ],
 });
