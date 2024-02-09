@@ -20,7 +20,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
@@ -28,7 +28,7 @@ jobs:
           useLockFile: false
 
       - name: 🚀 Release
-        uses: cycjimmy/semantic-release-action@v3
+        uses: cycjimmy/semantic-release-action@v4
         with:
           semantic_version: 18
           branches: |
